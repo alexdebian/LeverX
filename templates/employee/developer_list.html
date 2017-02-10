@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Developers</title>
+{% endblock %}
+
+{% block javascript %}
+{#<script src="{% static 'developers/js/developers.js' %}"></script>#}
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Developers</h1>
+{#    <p>#}
+{#    <button type="button" class="btn btn-primary js-create-task" data-url="{% url 'task_create' %}">#}
+{#        <span class="glyphicon glyphicon-plus"></span>#}
+{#        New task#}
+{#    </button>#}
+{#    </p>#}
+  <table class="table" id="manager-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'employee/includes/partial_developer_list.html' %}
+    </tbody>
+  </table>
+    <div class="modal fade" id="modal-task">
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+    </div>
+{% endblock %}

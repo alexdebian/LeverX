@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Tasks</title>
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'tasks/js/tasks.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  <h1 class="page-header">Tasks</h1>
+    <p>
+    <button type="button" class="btn btn-primary js-create-task" data-url="{% url 'task_create' %}">
+        <span class="glyphicon glyphicon-plus"></span>
+        New task
+    </button>
+    </p>
+  <table class="table" id="task-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Due date</th>
+        <th>Developer</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% include 'tasks/includes/partial_task_list.html' %}
+    </tbody>
+  </table>
+    <div class="modal fade" id="modal-task">
+    <div class="modal-dialog">
+        <div class="modal-content"></div>
+    </div>
+    </div>
+{% endblock %}
